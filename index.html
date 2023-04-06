@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>园区停车场危化品车辆监控平台</title>
+    <!-- UI组件库 -->
+    <link rel="stylesheet" href="./core/iview/4.5.0/styles/iview.min.css">
+    <link rel="stylesheet" href="./css/bh_iview.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/parkingLot.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="jbdanger-layout">
+            <header class="jbdanger-header tc" style="position: relative;">
+                <div class="getTime time1">
+                    {{date}}
+                </div>
+                <div class="getTime time2">
+                    <span>{{date2}}</span>
+                </div>
+                <span class="header-title">园区停车场危化品车辆监控平台</span>
+            </header>
+            <main class="jbdanger-main">
+                <Row :gutter="10">
+                    <i-col span="6">
+                        <div class="jbdanger-card" :style="{'height':dynHeight}" ref="box">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">化工园区危化品车辆统计</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="" style="height:100%;">
+                                    <ul class="numbers">
+                                        <li v-for="(item, index) in numberList" :key="index" style="width: 31%;"
+                                            :class="item.color">
+                                            <p>{{item.title}}</p>
+                                            <span>{{item.number}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight,'cursor':'pointer'}" @click="linkTo()">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">停车场A区</span>
+                                <a href="parkingLot.html" class="fr detail-link">详情</a>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="verSiteAreaChart2" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">化工园危车辆进出园区</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="barExample9" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                    </i-col>
+                    <i-col span="6">
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">化工园区在园车辆数</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="barExample8" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight,'cursor':'pointer'}" @click="linkTo2()">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">化工园区危化品车辆占比</span>
+                                <a href="vehicleMonitoring.html" class="fr detail-link">详情</a>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="vehicleProportion" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">石化厂区危化品车辆进厂趋势</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="lineExample6" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                    </i-col>
+                    <i-col span="6">
+                        <div class="jbdanger-card" :style="{'height':dynHeight1}" >
+                            <div class="jbdanger-card-body">
+                                <div id="" style="height: 585px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">石化厂区整点危化品车辆数</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="vehicleIOChart" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                    </i-col>
+                    <i-col span="6">
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">停车场预警</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="" style="height: 100%;">
+                                    <div class="marquee">
+                                        <ul class="thead">
+                                            <li>
+                                                <span v-for="(item,index) of columns1" :key="index"
+                                                    :style="'width:'+(100/(columns1.length)-0.5)+'%'">{{item.title}}</span>
+                                            </li>
+                                        </ul>
+                                        <div class="marquee_box">
+                                            <ul class="marquee_list" :class="{marquee_top:animate}">
+                                                <li v-for="(item, index) in data1" :key="index">
+                                                    <span
+                                                        :style="'width:'+(100/(columns1.length)-0.5)+'%'">{{item.parkingLot}}</span>
+                                                    <span
+                                                        :style="'width:'+(100/(columns1.length)-0.5)+'%'">{{item.realTimeParking}}</span>
+                                                    <span
+                                                        :style="'width:'+(100/(columns1.length)-0.5)+'%'">{{item.availableParkingSpaces}}</span>
+                                                    <span :style="'width:'+(100/(columns1.length)-0.5)+'%'">
+                                                        <font :color="item.earlyWarningIndex=='正常'?'#fff':'#ff0808'">
+                                                            {{item.earlyWarningIndex}}</font>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">石化厂区西区危化品车辆</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="barExample6" style="height: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jbdanger-card" :style="{'height':dynHeight}">
+                            <div class="jbdanger-card-header">
+                                <span class="card-title">石化厂区东区危化品车辆</span>
+                            </div>
+                            <div class="jbdanger-card-body">
+                                <div id="barExample7" style="height: 100%;">
+                                </div>
+                            </div>
+                        </div>
+                    </i-col>
+                </Row>
+            </main>
+        </div>
+    </div>
+    <!-- 公共js -->
+    <script src="./core/echarts/5.0.0/echarts.min.js"></script>
+    <script src="./core/highcharts/9.0.1/highcharts.js"></script>
+    <script src="./core/highcharts/9.0.1/highcharts-3d.js"></script>
+    <script src="./core/vue/2.6.10/vue.js"></script>
+    <script src="./core/iview/4.5.0/iview.min.js"></script>
+    <script src="./core/iview/ie_iview.js"></script>
+    <!--  -->
+    <script src="./js/charts.js"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

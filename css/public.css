@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: SourceHanSansCN-Normal, 'Microsoft Yahei', "微软雅黑", "宋体", Arial, Helvetica, sans-serif, serif;
+}
+
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html,
+body {
+    font-size: 14px;
+    /* background-color: #fff; */
+    color:#0d263f;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    outline: none;
+    vertical-align: middle;
+    border: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.cf::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+.tc{
+    text-align: center;
+}
+.mb-0{
+    margin-bottom: 0px !important;
+}
+.p-15{
+    padding: 15px;
+}
+/* 滚动条 */
+*::-webkit-scrollbar {
+    width: 9px;
+    height: 10px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #f9f9f9;
+    border-radius: 2px;
+    -moz-box-shadow: 1px 0 5px 1px rgba(127, 127, 127, 0.2);
+    -webkit-box-shadow: 1px 0 5px 1px rgba(127, 127, 127, 0.2);
+    box-shadow: 1px 0 5px 1px rgba(127, 127, 127, 0.2);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: #0001271a;
+    border-radius: 0;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: #0001276e;
+    opacity: 0.5;
+  }
+  
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }

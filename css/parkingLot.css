@@ -1,0 +1,189 @@
+/* #app{
+    cursor: crosshair;
+} */
+.numbers {
+    margin: 0 21px 0px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    /* padding: 7px 0 0 0; */
+    height: 100%;
+}
+
+.numbers li {
+    /* margin-top: 12px; */
+    width: 47%;
+    height: 47%;
+    /* height: 97px; */
+    background-color: #13335f;
+    border-radius: 3px;
+    padding: 0.05rem 0 0 0;
+    border-radius: 0px 0px 2px 2px;
+}
+
+.numbers li p {
+    text-align: center;
+    font-family: SourceHanSansCN-Regular;
+    /* font-size: 14px; */
+    font-size: 0.09rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 0.01px;
+}
+
+.numbers li span {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    font-family: Impact;
+    /* font-size: 36px; */
+    font-size: 0.18rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+}
+
+.numbers li.color1 {
+    border-bottom: 2px solid #8fa6ec;
+}
+
+.numbers li.color1 span {
+    color: #8fa6ec;
+}
+
+.numbers li.color2 {
+    border-bottom: 2px solid #fe6902;
+}
+
+.numbers li.color2 span {
+    color: #fe6902;
+}
+
+.numbers li.color3 {
+    border-bottom: 2px solid #0e9fe1;
+}
+
+.numbers li.color3 span {
+    color: #0e9fe1;
+}
+
+.numbers li.color4 {
+    border-bottom: 2px solid #2a916e;
+}
+
+.numbers li.color4 span {
+    color: #2a916e;
+}
+
+.numbers li.color5 {
+    border-bottom: 2px solid #edc259;
+}
+
+.numbers li.color5 span {
+    color: #edc259;
+}
+
+.numbers li.color6 {
+    border-bottom: 2px solid #25a6bf;
+}
+
+.numbers li.color6 span {
+    color: #25a6bf;
+}
+
+/* 表格 */
+.ivu-table-wrapper {
+    height: 100%;
+
+}
+
+.ivu-table {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.ivu-table td {
+    background-color: transparent;
+    color: #fff;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+    height: 40px;
+}
+
+.ivu-table-tbody tr td,
+.ivu-table-tbody tr,
+.ivu-table:before {
+    background-color: transparent;
+    border: none !important;
+
+}
+
+/* .ivu-table-tbody .ivu-table-row td .ivu-table-cell{
+    white-space: nowrap;
+    text-overflow:unset;
+    overflow: unset;
+  } */
+.ivu-table-header th {
+    background-color: transparent;
+    border-bottom: 2px solid #02ccce;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+/* 表格斑马纹 */
+.ivu-table-stripe .ivu-table-body tr:nth-child(2n) td {
+    background-color: rgba(8, 38, 61, 0.5);
+    font-family: SourceHanSansCN-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+
+}
+
+/* .ivu-table-stripe .ivu-table-body tr:nth-child(2n) td{
+	background-color: transparent;
+    font-family: SourceHanSansCN-Regular;
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 1px;
+	color: #ffffff;
+  } */
+
+.highcharts-point::before {
+    display: block;
+    content: '';
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    text-align: center;
+}
+.detail-link{
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    line-height: 38px;
+}
